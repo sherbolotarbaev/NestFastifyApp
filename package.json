@@ -1,8 +1,8 @@
 {
-  "name": "auth",
+  "name": "NestFastifyApp",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "NestJS & Fastify App ✨",
+  "author": "Sherbolot Arbaev",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
