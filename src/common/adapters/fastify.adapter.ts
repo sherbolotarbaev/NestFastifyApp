@@ -12,10 +12,26 @@ app.getInstance().addHook('onRequest', (request, reply, done) => {
   const { origin } = request.headers;
   if (!origin) request.headers.origin = request.headers.host;
 
-  const { url } = request;
+  const { url, method, routerPath } = request;
+
+  const ip =
+    request.headers['x-real-ip'] ||
+    request.headers['x-forwarded-for'] ||
+    request.socket.remoteAddress ||
+    '';
+  const ipAddress = Array.isArray(ip) ? ip[0] : ip;
 
   if (url.match(/favicon.ico$/) || url.match(/manifest.json$/))
     return reply.code(204).send();
+
+  console.log(
+    `--- [REQUEST] ---
+IP: ${ipAddress}
+METHOD: ${method}
+PATH: ${routerPath}
+DATE: ${new Date()}
+-----------------`,
+  );
 
   done();
 });
