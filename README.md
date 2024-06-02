@@ -1,4 +1,5 @@
-# NestFastifyApp 🚀
+# NestFastifyApp
+NestJS & Fastify App ✨
 
 ## Installation
 
