@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 
 import { ConfigModule } from '@nestjs/config';
 
+import { AppController } from './app.controller';
+
 import config from './config';
 
 import { DatabaseModule } from './shared/database/database.module';
@@ -16,7 +18,7 @@ import { DatabaseModule } from './shared/database/database.module';
     }),
     DatabaseModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
