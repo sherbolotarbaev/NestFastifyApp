@@ -1,3 +1,5 @@
+# NestFastifyApp 🚀
+
 ## Installation
 
 ```bash
