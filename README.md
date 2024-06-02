@@ -1,5 +1,5 @@
 # NestFastifyApp
-NestJS & Fastify App ✨
+NestJS & Fastify boilerplate ✨
 
 ## Installation
 
