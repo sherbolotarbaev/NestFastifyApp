@@ -9,7 +9,7 @@
     "baseUrl": ".",
     "module": "commonjs",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["./src/*"]
     },
     "strictBindCallApply": false,
     "strictNullChecks": false,
@@ -24,5 +24,6 @@
     "forceConsistentCasingInFileNames": false,
     "skipLibCheck": true
   },
+  "include": ["./**/*.ts"],
   "exclude": ["node_modules", "scripts", "dist"]
 }
