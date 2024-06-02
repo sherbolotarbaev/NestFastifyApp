@@ -7,7 +7,7 @@ import {
 
 import { ConfigService } from '@nestjs/config';
 
-import { ConfigKeyPaths } from '~/config';
+import { ConfigKeyPaths } from '../../../config';
 
 import { PrismaClient } from '@prisma/client';
 

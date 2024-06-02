@@ -10,8 +10,6 @@ import { useContainer } from 'class-validator';
 import { AppModule } from './app.module';
 import { fastifyApp } from './common/adapters/fastify.adapter';
 
-import 'module-alias/register';
-
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,

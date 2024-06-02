@@ -52,9 +52,6 @@ devDependencies:
   '@types/jest':
     specifier: ^29.5.2
     version: 29.5.2
-  '@types/module-alias':
-    specifier: ^2.0.4
-    version: 2.0.4
   '@types/node':
     specifier: ^20.3.1
     version: 20.3.1
@@ -82,9 +79,6 @@ devDependencies:
   jest:
     specifier: ^29.5.0
     version: 29.5.0(@types/node@20.3.1)(ts-node@10.9.1)
-  module-alias:
-    specifier: ^2.2.3
-    version: 2.2.3
   prettier:
     specifier: ^3.0.0
     version: 3.0.0
@@ -1306,10 +1300,6 @@ packages:
 
   /@types/mime@1.3.5:
     resolution: {integrity: sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==}
-    dev: true
-
-  /@types/module-alias@2.0.4:
-    resolution: {integrity: sha512-5+G/QXO/DvHZw60FjvbDzO4JmlD/nG5m2/vVGt25VN1eeP3w2bCoks1Wa7VuptMPM1TxJdx6RjO70N9Fw0nZPA==}
     dev: true
 
   /@types/node@20.3.1:
@@ -4113,10 +4103,6 @@ packages:
     dependencies:
       obliterator: 2.0.4
     dev: false
-
-  /module-alias@2.2.3:
-    resolution: {integrity: sha512-23g5BFj4zdQL/b6tor7Ji+QY4pEfNH784BMslY9Qb0UnJWRAt+lQGLYmRaM0KDBwIG23ffEBELhZDP2rhi9f/Q==}
-    dev: true
 
   /ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
