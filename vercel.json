@@ -2,6 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "pnpm install",
   "buildCommand": "pnpm build",
+  "build": {
+    "env": {
+      "NODE_PATH": "src/"
+    }
+  },
   "builds": [
     {
       "src": "src/main.ts",
