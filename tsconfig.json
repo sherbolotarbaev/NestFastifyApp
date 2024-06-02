@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "require": ["tsconfig-paths/register"],
     "incremental": true,
     "target": "ES2022",
     "lib": ["ESNext"],
@@ -8,7 +9,7 @@
     "baseUrl": "./",
     "module": "commonjs",
     "paths": {
-      "*": ["./*"]
+      "~/*": ["src/*"]
     },
     "strictBindCallApply": false,
     "strictNullChecks": false,
