@@ -18,7 +18,7 @@ export class PrismaService
 {
   private readonly logger = new Logger(PrismaService.name);
 
-  constructor(configService: ConfigService<ConfigKeyPaths>) {
+  constructor(private readonly configService: ConfigService<ConfigKeyPaths>) {
     super({
       datasources: {
         db: {
@@ -28,23 +28,21 @@ export class PrismaService
     });
   }
 
-  async onModuleInit() {
+  async onModuleInit(): Promise<void> {
     try {
       await this.$connect();
       this.logger.log('Prisma connected to the database successfully');
     } catch (error) {
       this.logger.error('Failed to connect to the database:', error);
-      throw error;
     }
   }
 
-  async onModuleDestroy() {
+  async onModuleDestroy(): Promise<void> {
     try {
       await this.$disconnect();
       this.logger.log('Prisma disconnected from the database successfully');
     } catch (error) {
       this.logger.error('Failed to disconnect from the database:', error);
-      throw error;
     }
   }
 }

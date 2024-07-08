@@ -1,14 +1,14 @@
-import { Controller, Get, HttpCode, HttpStatus, Res } from '@nestjs/common';
-
-import type { FastifyReply } from 'fastify';
+import { Controller, Get, HttpCode, HttpStatus } from '@nestjs/common';
 
 @Controller()
 export class AppController {
   @Get()
   @HttpCode(HttpStatus.OK)
-  async main(@Res() response: FastifyReply) {
-    return response.status(HttpStatus.OK).send({
+  main(): {
+    message: string;
+  } {
+    return {
       message: 'success',
-    });
+    };
   }
 }

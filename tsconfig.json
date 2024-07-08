@@ -6,6 +6,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
+    "rootDir": ".",
     "module": "commonjs",
     "paths": {
       "~/*": ["src/*"]
@@ -23,6 +24,6 @@
     "forceConsistentCasingInFileNames": false,
     "skipLibCheck": true
   },
-  "include": ["src"],
+  "include": ["src/**/*", "src/templates/**/*.hbs"],
   "exclude": ["node_modules", "scripts", "dist"]
 }

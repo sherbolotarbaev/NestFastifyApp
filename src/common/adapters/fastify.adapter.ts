@@ -24,14 +24,7 @@ app.getInstance().addHook('onRequest', (request, reply, done) => {
   if (url.match(/favicon.ico$/) || url.match(/manifest.json$/))
     return reply.code(204).send();
 
-  console.log(
-    `--- [REQUEST] ---
-IP: ${ipAddress}
-METHOD: ${method}
-PATH: ${routerPath}
-DATE: ${new Date()}
------------------`,
-  );
+  console.log(`[${ipAddress}] ${method}: ${routerPath}`);
 
   done();
 });
