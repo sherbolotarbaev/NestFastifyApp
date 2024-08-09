@@ -18,7 +18,7 @@ export class PrismaService
 {
   private readonly logger = new Logger(PrismaService.name);
 
-  constructor(private readonly configService: ConfigService<ConfigKeyPaths>) {
+  constructor(readonly configService: ConfigService<ConfigKeyPaths>) {
     super({
       datasources: {
         db: {

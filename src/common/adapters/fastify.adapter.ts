@@ -1,8 +1,12 @@
+import { Logger } from '@nestjs/common';
 import { FastifyAdapter } from '@nestjs/platform-fastify';
+import { userAgent } from '~/utils/user-agent';
 
 const app: FastifyAdapter = new FastifyAdapter({
   trustProxy: true,
-  logger: false,
+  // logger: {
+  //   level: 'debug',
+  // },
   // forceCloseConnections: true,
 });
 
@@ -12,8 +16,22 @@ app.getInstance().addHook('onRequest', (request, reply, done) => {
   const { origin } = request.headers;
   if (!origin) request.headers.origin = request.headers.host;
 
-  const { url, method, routerPath } = request;
+  const { url } = request;
 
+  if (url.match(/favicon.ico$/) || url.match(/manifest.json$/)) {
+    reply.code(204).send();
+    return;
+  }
+
+  request['startTime'] = Date.now();
+
+  done();
+});
+
+app.getInstance().addHook('onResponse', (request, reply, done) => {
+  const responseTime = Date.now() - request['startTime'] || 0;
+  const { method, originalUrl, headers } = request;
+  const { statusCode } = reply;
   const ip =
     request.headers['x-real-ip'] ||
     request.headers['x-forwarded-for'] ||
@@ -21,10 +39,12 @@ app.getInstance().addHook('onRequest', (request, reply, done) => {
     '';
   const ipAddress = Array.isArray(ip) ? ip[0] : ip;
 
-  if (url.match(/favicon.ico$/) || url.match(/manifest.json$/))
-    return reply.code(204).send();
+  const ua = userAgent({ headers });
 
-  console.log(`[${ipAddress}] ${method}: ${routerPath}`);
+  const logger = new Logger(ipAddress);
+  logger.log(
+    `${method} ${originalUrl} ${statusCode} ${responseTime}ms | ${ua.os.name} ${ua.os.version} | Bot: ${ua.isBot}`,
+  );
 
   done();
 });
